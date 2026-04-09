@@ -1,96 +1,55 @@
 # Epiworld Documentation
 
-A fast, general-purpose C++ framework for agent-based epidemiological simulation.
+A centralized documentation site for the `epiworld` ecosystem, with shared
+material for C++, R, and related interfaces.
 
----
+## Start Here
 
-## What is Epiworld?
-
-Epiworld is a high-performance C++ library for building and running
-epidemiological simulations. It is designed for **rapid prototyping** of
-complex models while maintaining the speed needed for large-scale studies.
-
-**Key features:**
-
-- :material-lightning-bolt: **Fast** — Over 150 million agent × day simulations per second.
-- :material-puzzle: **Flexible** — Define arbitrary states, viruses, tools, and update rules.
-- :material-file-code: **Header-only** — Single-file include; depends only on the C++ standard library.
-- :material-lan: **Network-aware** — Simulations run on contact networks with configurable topologies.
-- :material-bacteria: **Multi-pathogen** — Multiple viruses and tools can coexist in one simulation.
-
-## Quick Example
-
-```cpp
-#include "epiworld.hpp"
-
-using namespace epiworld;
-
-int main() {
-
-    // Create a built-in SIR model
-    epimodels::ModelSIR<> model(
-        "COVID-19", // Virus name
-        0.01,       // Initial prevalence
-        0.1,        // Transmission rate
-        0.3         // Recovery rate
-    );
-
-    // Generate a small-world contact network
-    model.agents_smallworld(100000, 10, false, 0.01);
-
-    // Run for 100 days with seed 122
-    model.run(100, 122);
-    model.print();
-
-    return 0;
-}
-```
-
-## Documentation Sections
+This site is organized around three tasks:
 
 <div class="grid cards" markdown>
 
--   :material-lightbulb:{ .lg .middle } **Concepts**
+-   :material-book-open-page-variant:{ .lg .middle } **Guide**
 
     ---
 
-    Core theory behind epiworld: simulation steps, agents, and contagion
-    mechanics.
+    Learn the core concepts, understand the `add_state()` workflow, and browse
+    the built-in model families with cross-references instead of duplicated
+    explanations.
 
-    [:octicons-arrow-right-24: Read more](concepts/index.md)
+    [:octicons-arrow-right-24: Open the guide](guide/index.md)
 
--   :material-virus:{ .lg .middle } **Models**
-
-    ---
-
-    Pre-built epidemiological models (SIR, SEIR, measles, etc.) ready to use
-    or customize.
-
-    [:octicons-arrow-right-24: Browse models](models/index.md)
-
--   :material-cog:{ .lg .middle } **Implementation**
+-   :material-flask-outline:{ .lg .middle } **Examples**
 
     ---
 
-    Architecture, performance optimization, extending the library, and
-    internal design details.
+    Browse runnable examples sourced from the upstream `epiworld` repository,
+    including showcase files such as `helloworld.cpp` and the `examples/`
+    directory.
 
-    [:octicons-arrow-right-24: Learn more](impl/index.md)
+    [:octicons-arrow-right-24: Browse examples](examples/index.md)
 
--   :material-code-tags:{ .lg .middle } **API Reference**
+-   :material-code-tags:{ .lg .middle } **C++ API**
 
     ---
 
-    Complete class and function reference generated from the source code.
+    Explore the generated Doxygen reference for classes, files, and namespaces.
+    This section is built directly from the upstream C++ source comments.
 
-    [:octicons-arrow-right-24: API docs](api/index.md)
+    [:octicons-arrow-right-24: Open the API reference](reference/index.md)
 
 </div>
 
-## Source Code
+## What Epiworld Provides
 
-The epiworld source code is hosted at
-[**UofUEpiBio/epiworld**](https://github.com/UofUEpiBio/epiworld) on GitHub.
-This documentation site is built from the
-[**UofUEpiBio/epiworld-docs**](https://github.com/UofUEpiBio/epiworld-docs)
-repository and always reflects the latest version of the library.
+- Fast agent-based epidemiological simulation in modern C++.
+- Built-in compartmental, connected-population, mixing, and specialized models.
+- Extensible support for custom states, viruses, tools, and global events.
+- Cross-interface workflows where narrative docs can explain shared concepts
+  once and link outward to interface-specific references.
+
+## Source Repositories
+
+- Main library: [UofUEpiBio/epiworld](https://github.com/UofUEpiBio/epiworld)
+- Documentation site: [UofUEpiBio/epiworld-docs](https://github.com/UofUEpiBio/epiworld-docs)
+- R interface: [epiworldR site](https://uofuepibio.github.io/epiworldR/)

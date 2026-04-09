@@ -2,8 +2,8 @@ site_name: Epiworld
 site_description: A general framework for epidemiologic simulation
 site_url: https://UofUEpiBio.github.io/epiworld-docs
 
-repo_name: UofUEpiBio/epiworld
-repo_url: https://github.com/UofUEpiBio/epiworld
+repo_name: UofUEpiBio/epiworld-docs
+repo_url: https://github.com/UofUEpiBio/epiworld-docs
 
 docs_dir: docs_src
 site_dir: site
@@ -44,58 +44,24 @@ theme:
 
 nav:
   - Home: README.md
-  - Concepts:
-    - concepts/index.md
-    - Simulation Steps: concepts/simulation-steps.md
-    - Agents: concepts/agents.md
-    - Contagion: concepts/contagion.md
-  - Models:
-    - models/index.md
-    - Basic Compartmental Models:
-        - SIS: epiworld/classModelSIS.md
-        - SIR: epiworld/classModelSIR.md
-        - SEIR: epiworld/classModelSEIR.md
-    - Models with Death Compartment:
-        - SIRD: epiworld/classModelSIRD.md
-        - SISD: epiworld/classModelSISD.md
-        - SEIRD: epiworld/classModelSEIRD.md
-    - Connected Population Models:
-        - SIR Connected: epiworld/classModelSIRCONN.md
-        - SEIR Connected: epiworld/classModelSEIRCONN.md
-        - SIRD Connected: epiworld/classModelSIRDCONN.md
-        - SEIRD Connected: epiworld/classModelSEIRDCONN.md
-    - Population Mixing Models:
-        - SEIR Mixing: epiworld/classModelSEIRMixing.md
-        - SIR Mixing: epiworld/classModelSIRMixing.md
-        - SEIR Mixing Quarantine: epiworld/classModelSEIRMixingQuarantine.md
-    - Disease-Specific Models:
-        - Measles School: epiworld/classModelMeaslesSchool.md
-        - Measles Mixing: models/measles-mixing.md
-        - Measles Mixing Risk Quarantine: models/measles-mixing-risk-quarantine.md
-    - Specialized Models:
-        - SIR Logit: epiworld/classModelSIRLogit.md
-        - Diffusion Network: epiworld/classModelDiffNet.md
-        - Surveillance: epiworld/classModelSURV.md
-  - Implementation:
-    - impl/index.md
-    - Library Architecture: impl/1. Library Architecture.md
-    - Performance Optimization: impl/2. Performance Optimization.md
-    - Extending the Library: impl/3. Extending the Library.md
-    - Extending with Models: impl/3.1 Extending the Library with Models.md
-    - Core Simulation Models: impl/4. Core Simulation Models.md
-    - Queueing System: impl/5. Queueing System.md
-    - Random Graph Generation: impl/6. Random Graph Generation.md
-    - Data Collection and Analysis: impl/7. Data Collection and Analysis.md
-    - RNG and Statistical Functions: impl/8. Random Number Generation and Statistical Functions.md
-    - Reproducibility and run_multiple: impl/9. Reproducibility and run_multiple.md
-    - Mixing and Entity Distribution: impl/10. Mixing and Entity Distribution.md
-    - Virus and Tool Distribution: impl/11. Virus and Tool Distribution Functions.md
-    - Generation Interval and R₀: impl/12. Generation Interval and Reproductive Number Calculation.md
-    - Events and Multi-Event Handling: impl/13. Events and Multi-Event Handling.md
-    - Quarantine and Contact Tracing: impl/14. Quarantine, Isolation, and Contact Tracing Modules.md
-    - Sampling Contacts: impl/15. Sampling Contacts.md
-  - API Reference: 
-    - api/index.md
+  - Guide:
+    - guide/index.md
+    - Fundamentals: guide/fundamentals.md
+    - Building Models from Scratch: guide/building-from-scratch.md
+    - Viruses, Tools, and Global Events: guide/viruses-tools-and-events.md
+    - Built-in Models:
+        - guide/built-in-models/index.md
+        - Common Patterns: guide/built-in-models/common-patterns.md
+        - Compartmental Models: guide/built-in-models/compartmental-models.md
+        - Connected Population Models: guide/built-in-models/connected-population-models.md
+        - Mixing Models: guide/built-in-models/mixing-models.md
+        - Measles Models: guide/built-in-models/measles-models.md
+        - Specialized Models: guide/built-in-models/specialized-models.md
+  - Examples:
+    - examples/index.md
+    - Repository Gallery: examples/repository/index.md
+  - C++ API:
+    - reference/index.md
     - Classes: epiworld/annotated.md
     - Files: epiworld/files.md
     - Namespaces: epiworld/namespaces.md
