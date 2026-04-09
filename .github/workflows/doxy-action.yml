@@ -1,6 +1,17 @@
 name: MkDocs Documentation
 
-on: [pull_request]
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy (default: main)'
+        required: false
+        default: 'main'
+      epiworld-branch:
+        description: 'Epiworld branch to use for documentation (default: master)'
+        required: false
+        default: 'master'
 
 permissions:
   contents: read
@@ -34,7 +45,7 @@ jobs:
         run: mkdocs build
       
       - name: Upload artifact for GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/
@@ -47,7 +58,7 @@ jobs:
           path: site/
 
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
