@@ -3,29 +3,19 @@
 
 build/
 site/
-docs/
 __pycache__/
 *.dSYM/
 
-*.txt
-*.csv
-$*
-*.o
+# Cloned epiworld source (fetched at build time)
+epiworld-src/
 
+# Legacy source code directories (source lives in UofUEpiBio/epiworld)
+include/
 docs/html/
 docs/latex/
 docs/xml/
 
 _codeql_detected_source_root
 
-# We only care about code
-tests/
-!tests/*.hpp
-!tests/*.cpp
-
-examples/
-!examples/**/*.hpp
-!examples/**/*.cpp
-
-# This is mounted from the container
+# Editor settings
 .vscode/

@@ -1,1 +1,0 @@
-requires 'XML::LibXML';
