@@ -1,6 +1,6 @@
 site_name: Epiworld
 site_description: A general framework for epidemiologic simulation
-site_url: https://UofUEpi.github.io/epiworld
+site_url: https://UofUEpiBio.github.io/epiworld-docs
 
 repo_name: UofUEpiBio/epiworld
 repo_url: https://github.com/UofUEpiBio/epiworld
@@ -10,20 +10,47 @@ site_dir: site
 
 theme:
   name: material
-  # palette:
-  #   primary: blue
-  #   accent: light-blue
+  logo: assets/branding/epiworld.png
+  favicon: assets/branding/epiworld.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
   features:
     - navigation.tabs
     - navigation.sections
     - navigation.expand
+    - navigation.top
+    - navigation.indexes
     - search.suggest
     - search.highlight
+    - content.code.copy
 
 nav:
   - Home: README.md
+  - Concepts:
+    - concepts/index.md
+    - Simulation Steps: concepts/simulation-steps.md
+    - Agents: concepts/agents.md
+    - Contagion: concepts/contagion.md
   - Models:
-    - Overview: epiworld/modules.md
+    - models/index.md
     - Basic Compartmental Models:
         - SIS: epiworld/classModelSIS.md
         - SIR: epiworld/classModelSIR.md
@@ -43,42 +70,42 @@ nav:
         - SEIR Mixing Quarantine: epiworld/classModelSEIRMixingQuarantine.md
     - Disease-Specific Models:
         - Measles School: epiworld/classModelMeaslesSchool.md
-        - Measles Mixing: epiworld/classModelMeaslesMixing.md
-        - Measles Mixing Risk Quarantine: epiworld/classModelMeaslesMixingRiskQuarantine.md
+        - Measles Mixing: models/measles-mixing.md
+        - Measles Mixing Risk Quarantine: models/measles-mixing-risk-quarantine.md
     - Specialized Models:
         - SIR Logit: epiworld/classModelSIRLogit.md
         - Diffusion Network: epiworld/classModelDiffNet.md
         - Surveillance: epiworld/classModelSURV.md
-  - API Reference: 
-    - Overview: api/index.md
-    - Classes: epiworld/annotated.md
-    - Files: epiworld/files.md
-    - Namespaces: epiworld/namespaces.md
   - Implementation:
-    - Overview: impl/index.md
+    - impl/index.md
     - Library Architecture: impl/1. Library Architecture.md
     - Performance Optimization: impl/2. Performance Optimization.md
     - Extending the Library: impl/3. Extending the Library.md
-    - Extending the library with models: impl/3.1 Extending the Library with Models.md
+    - Extending with Models: impl/3.1 Extending the Library with Models.md
     - Core Simulation Models: impl/4. Core Simulation Models.md
     - Queueing System: impl/5. Queueing System.md
     - Random Graph Generation: impl/6. Random Graph Generation.md
     - Data Collection and Analysis: impl/7. Data Collection and Analysis.md
-    - Random Number Generation and Statistical Functions: impl/8. Random Number Generation and Statistical Functions.md
+    - RNG and Statistical Functions: impl/8. Random Number Generation and Statistical Functions.md
     - Reproducibility and run_multiple: impl/9. Reproducibility and run_multiple.md
     - Mixing and Entity Distribution: impl/10. Mixing and Entity Distribution.md
-    - Virus and Tool Distribution Functions: impl/11. Virus and Tool Distribution Functions.md
-    - Generation Interval and Reproductive Number Calculation: impl/12. Generation Interval and Reproductive Number Calculation.md
+    - Virus and Tool Distribution: impl/11. Virus and Tool Distribution Functions.md
+    - Generation Interval and R₀: impl/12. Generation Interval and Reproductive Number Calculation.md
     - Events and Multi-Event Handling: impl/13. Events and Multi-Event Handling.md
-    - Quarantine, Isolation, and Contact Tracing Modules: impl/14. Quarantine, Isolation, and Contact Tracing Modules.md
+    - Quarantine and Contact Tracing: impl/14. Quarantine, Isolation, and Contact Tracing Modules.md
     - Sampling Contacts: impl/15. Sampling Contacts.md
+  - API Reference: 
+    - api/index.md
+    - Classes: epiworld/annotated.md
+    - Files: epiworld/files.md
+    - Namespaces: epiworld/namespaces.md
 
 plugins:
   - search
   - mkdoxy:
       projects:
         epiworld:
-          src-dirs: include/epiworld
+          src-dirs: epiworld-src/include/epiworld
           full-doc: true
           doxy-cfg:
             FILE_PATTERNS: "*.hpp *.h"
@@ -87,6 +114,11 @@ plugins:
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -99,6 +131,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
   - toc:
       permalink: true
 

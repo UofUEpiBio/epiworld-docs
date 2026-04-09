@@ -1,6 +1,8 @@
 name: MkDocs Documentation
 
 on:
+  push:
+    branches: [main]
   pull_request:
   workflow_dispatch:
     inputs:
@@ -28,7 +30,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
+
+      - name: Clone epiworld source
+        run: |
+          EPIWORLD_BRANCH="${{ github.event.inputs.epiworld-branch || 'master' }}"
+          git clone --depth 1 --branch "$EPIWORLD_BRANCH" \
+            https://github.com/UofUEpiBio/epiworld.git epiworld-src
 
       - name: Set up Python
         uses: actions/setup-python@v5

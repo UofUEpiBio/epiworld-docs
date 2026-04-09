@@ -1,0 +1,47 @@
+# Simulation Steps
+
+The core logic of the model relies on user-defined states and their
+corresponding update functions. The model does not have a predefined set of
+states (e.g., susceptible, infected, recovered); the user establishes them.
+This provides flexibility, as models in epiworld can have an arbitrary set of
+states.
+
+## Discrete-Time Simulation
+
+Like most other ABMs, epiworld simulates the evolution of a system in discrete
+steps. Each step represents a **day** in the system, and changes are reflected
+at the beginning of the following day. Therefore, agents can recover and
+transmit a virus on the same day.
+
+## Steps Within a Single Day
+
+A single step of epiworld features the following procedures:
+
+1. **State update** — Agents are updated according to their current state.
+   Each state has an associated update function that determines how agents
+   in that state behave (e.g., whether they can infect others, recover, etc.).
+
+2. **(Optional) Execute global events** — A call to user-defined functions
+   that affect the system as a whole. These can make any type of change in the
+   system, such as implementing interventions, changing parameters, or
+   collecting custom statistics.
+
+3. **(Optional) Apply rewiring algorithm** — When specified, the contact
+   network is rewired according to a user-defined function. This can model
+   changes in social behavior over time.
+
+4. **Lock the results** — The current date is incremented by one unit, and
+   the changes (exposure, new infections, recoveries, etc.) are recorded
+   in the database.
+
+5. **(Optional) Mutate variants** — When defined, viruses can mutate, with
+   new variants appearing the next day.
+
+## Queuing System
+
+To speed up computations, epiworld uses a **queuing system** that decides
+which agents will be active during each step and which will not. Agents are
+active when either they or at least one of their neighbors has an active virus.
+Updates are triggered only for agents in the queue, significantly accelerating
+each step—especially when most of the population is not near an infected
+individual.

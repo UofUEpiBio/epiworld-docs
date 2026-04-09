@@ -1,0 +1,39 @@
+# Agents
+
+Agents are the fundamental units of an epiworld simulation. Each agent
+represents an individual in the population and carries information about
+their health status, connections, viruses, and tools.
+
+## Viruses and Tools
+
+Agents carry two key collections:
+
+- **Viruses** — Disease agents that can infect the individual and be
+  transmitted to contacts.
+- **Tools** — Interventions such as vaccines, masks, or natural immunity
+  that modify transmission and recovery probabilities.
+
+Each agent can hold **multiple** viruses and tools simultaneously, meaning
+that multiple diseases and interventions can coexist in a single simulation.
+
+## State Changes
+
+At each step of the simulation, an agent can undergo any of the following
+changes:
+
+| Action | Description |
+|--------|-------------|
+| **Acquire a virus** (`add_virus()`) | Become exposed to a virus from a contact. |
+| **Lose a virus** (`rm_virus()`) | Recover from or clear a virus. Triggers the virus's `postrecovery()` function, which can grant immunity. |
+| **Acquire a tool** (`add_tool()`) | Gain a tool such as a vaccine or mask. |
+| **Lose a tool** (`rm_tool()`) | Lose a tool, e.g., immunity waning or stopping mask use. |
+| **Change state** (`change_state()`) | Transition to a different compartment, e.g., from "Exposed" to "Infected" or from "Infected" to "ICU." |
+
+## Queuing Effects
+
+Any action in the model can trigger a change in the queuing system:
+
+- **Becoming exposed** makes the agent (and its neighbors) **active** in the
+  queue, ensuring they are evaluated in subsequent steps.
+- **Losing all viruses** can make the agent and its neighbors **inactive**,
+  allowing the simulation to skip them and run faster.
