@@ -22,7 +22,7 @@ vaccines, masks). The resulting probability of $i$ getting virus $v$
 from $j$ is:
 
 $$
-P(	ext{Virus } v) = P_v 	imes (1 - C_r) 	imes (1 - T_r)
+P(\text{Virus } v) = P_v \times (1 - C_r) \times (1 - T_r)
 $$
 
 ## Single-Virus Constraint
@@ -32,16 +32,16 @@ virus** at a time. Under this constraint, the actual probability that agent
 $i$ acquires virus $v$ from agent $j$ is:
 
 $$
-P_{ivj} = P(	ext{Virus } v \mid 	ext{at most one virus})
+P_{ivj} = P(\text{Virus } v \mid \text{at most one virus})
 $$
 
 This is calculated using **Bayes' rule**:
 
 $$
-egin{align*}
-P_{ivj} &= rac{P(	ext{at most one virus} \mid 	ext{Virus } v) 	imes P_v}{P(	ext{at most one virus})} \
-        &= rac{P(	ext{Only Virus } v)}{P(	ext{at most one virus})}
-nd{align*}
+\begin{align*}
+P_{ivj} &= \frac{P(\text{at most one virus} \mid \text{Virus } v) \times P_v}{P(\text{at most one virus})} \\
+        &= \frac{P(\text{Only Virus } v)}{P(\text{at most one virus})}
+\end{align*}
 $$
 
 ## Computing the Probabilities
@@ -49,13 +49,11 @@ $$
 The component probabilities are defined as:
 
 $$
-egin{align*}
-P(	ext{Only Virus } V) &= P_v 	imes \prod_{m 
-eq V} (1 - P_m) \
-P(	ext{at most one virus}) &= P(	ext{None}) + \sum_{k \in 	ext{viruses}} P_k 	imes \prod_{m 
-eq k} (1 - P_m) \
-P(	ext{None}) &= \prod_{k \in 	ext{viruses}} (1 - P_k)
-nd{align*}
+\begin{align*}
+P(\text{Only Virus } V) &= P_v \times \prod_{m \neq V} (1 - P_m) \\
+P(\text{at most one virus}) &= P(\text{None}) + \sum_{k \in \text{viruses}} P_k \times \prod_{m \neq k} (1 - P_m) \\
+P(\text{None}) &= \prod_{k \in \text{viruses}} (1 - P_k)
+\end{align*}
 $$
 
 This formulation ensures that viruses with **higher transmissibility** are
