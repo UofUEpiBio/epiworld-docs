@@ -1,0 +1,21 @@
+.zed/
+.cache/
+
+build/
+site/
+__pycache__/
+*.dSYM/
+
+# Cloned epiworld source (fetched at build time)
+epiworld-src/
+
+# Legacy source code directories (source lives in UofUEpiBio/epiworld)
+include/
+docs/html/
+docs/latex/
+docs/xml/
+
+_codeql_detected_source_root
+
+# Editor settings
+.vscode/
