@@ -1,0 +1,31 @@
+---
+title: "SIR Multiple Runs (b)"
+output: github_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{bash}
+./02b-sir_multiple_runs.o
+```
+
+```{r}
+dat <- read.csv("02b-sir-multiple-runs.csv")
+dat <- with(
+  dat,
+  rbind(
+    data.frame(run_id = run_id, state = "healthy", n = healthy),
+    data.frame(run_id = run_id, state = "infected", n = infected),
+    data.frame(run_id = run_id, state = "recovered", n = recovered),
+    data.frame(run_id = run_id, state = "removed", n = removed)
+  ))
+```
+
+```{r}
+library(ggplot2)
+ggplot(dat, aes(y = n, colour = state)) +
+  geom_boxplot()
+
+```
+
+
