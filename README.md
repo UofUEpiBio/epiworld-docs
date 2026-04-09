@@ -14,8 +14,11 @@ general-purpose framework for agent-based epidemiological simulation.
 epiworld-docs/
 ├── docs_src/              # Documentation source (mkdocs content)
 │   ├── README.md          # Homepage
+│   ├── guide/             # User Guide chapters (fundamentals, building models, etc.)
 │   ├── concepts/          # Core theory (simulation steps, agents, contagion)
-│   ├── models/            # Model documentation (measles, etc.)
+│   ├── models/            # Built-in model documentation
+│   ├── examples/          # Runnable examples from the epiworld repository
+│   ├── advanced/          # Advanced topics (architecture, performance, etc.)
 │   ├── impl/              # Implementation details
 │   ├── api/               # API reference overview
 │   ├── assets/            # Images and branding
@@ -23,6 +26,14 @@ epiworld-docs/
 ├── mkdocs.yml             # MkDocs configuration
 └── .github/workflows/     # CI/CD pipeline
 ```
+
+The documentation is organized into three main parts:
+
+1. **User Guide** — Step-by-step chapters covering fundamentals, building
+   custom models, adding viruses/tools/events, and the built-in models.
+2. **Examples** — Runnable C++ examples from the epiworld repository.
+3. **API Reference** — Complete class and function reference generated from
+   the source code via Doxygen.
 
 ## How It Works
 

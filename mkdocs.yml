@@ -44,57 +44,81 @@ theme:
 
 nav:
   - Home: README.md
-  - Concepts:
-    - concepts/index.md
+
+  # ── Part 1: User Guide ────────────────────────────────────────────────
+  - User Guide:
+    - guide/index.md
+    - Introduction: guide/fundamentals.md
     - Simulation Steps: concepts/simulation-steps.md
     - Agents: concepts/agents.md
     - Contagion: concepts/contagion.md
-  - Models:
-    - models/index.md
-    - Basic Compartmental Models:
-        - SIS: epiworld/classModelSIS.md
-        - SIR: epiworld/classModelSIR.md
-        - SEIR: epiworld/classModelSEIR.md
-    - Models with Death Compartment:
-        - SIRD: epiworld/classModelSIRD.md
-        - SISD: epiworld/classModelSISD.md
-        - SEIRD: epiworld/classModelSEIRD.md
-    - Connected Population Models:
-        - SIR Connected: epiworld/classModelSIRCONN.md
-        - SEIR Connected: epiworld/classModelSEIRCONN.md
-        - SIRD Connected: epiworld/classModelSIRDCONN.md
-        - SEIRD Connected: epiworld/classModelSEIRDCONN.md
-    - Population Mixing Models:
-        - SEIR Mixing: epiworld/classModelSEIRMixing.md
-        - SIR Mixing: epiworld/classModelSIRMixing.md
-        - SEIR Mixing Quarantine: epiworld/classModelSEIRMixingQuarantine.md
-    - Disease-Specific Models:
-        - Measles School: epiworld/classModelMeaslesSchool.md
-        - Measles Mixing: models/measles-mixing.md
-        - Measles Mixing Risk Quarantine: models/measles-mixing-risk-quarantine.md
-    - Specialized Models:
-        - SIR Logit: epiworld/classModelSIRLogit.md
-        - Diffusion Network: epiworld/classModelDiffNet.md
-        - Surveillance: epiworld/classModelSURV.md
-  - Implementation:
-    - impl/index.md
-    - Library Architecture: impl/1. Library Architecture.md
-    - Performance Optimization: impl/2. Performance Optimization.md
-    - Extending the Library: impl/3. Extending the Library.md
-    - Extending with Models: impl/3.1 Extending the Library with Models.md
-    - Core Simulation Models: impl/4. Core Simulation Models.md
-    - Queueing System: impl/5. Queueing System.md
-    - Random Graph Generation: impl/6. Random Graph Generation.md
-    - Data Collection and Analysis: impl/7. Data Collection and Analysis.md
-    - RNG and Statistical Functions: impl/8. Random Number Generation and Statistical Functions.md
-    - Reproducibility and run_multiple: impl/9. Reproducibility and run_multiple.md
-    - Mixing and Entity Distribution: impl/10. Mixing and Entity Distribution.md
-    - Virus and Tool Distribution: impl/11. Virus and Tool Distribution Functions.md
-    - Generation Interval and R₀: impl/12. Generation Interval and Reproductive Number Calculation.md
-    - Events and Multi-Event Handling: impl/13. Events and Multi-Event Handling.md
-    - Quarantine and Contact Tracing: impl/14. Quarantine, Isolation, and Contact Tracing Modules.md
-    - Sampling Contacts: impl/15. Sampling Contacts.md
-  - API Reference: 
+    - Building Models from Scratch: guide/building-models.md
+    - Viruses, Tools & Events: guide/viruses-tools-events.md
+    - Built-in Models:
+        - models/index.md
+        - Basic Compartmental Models:
+            - SIS: epiworld/classModelSIS.md
+            - SIR: epiworld/classModelSIR.md
+            - SEIR: epiworld/classModelSEIR.md
+        - Models with Death Compartment:
+            - SIRD: epiworld/classModelSIRD.md
+            - SISD: epiworld/classModelSISD.md
+            - SEIRD: epiworld/classModelSEIRD.md
+        - Connected Population Models:
+            - SIR Connected: epiworld/classModelSIRCONN.md
+            - SEIR Connected: epiworld/classModelSEIRCONN.md
+            - SIRD Connected: epiworld/classModelSIRDCONN.md
+            - SEIRD Connected: epiworld/classModelSEIRDCONN.md
+        - Population Mixing Models:
+            - SEIR Mixing: epiworld/classModelSEIRMixing.md
+            - SIR Mixing: epiworld/classModelSIRMixing.md
+            - SEIR Mixing Quarantine: epiworld/classModelSEIRMixingQuarantine.md
+        - Disease-Specific Models:
+            - Measles School: epiworld/classModelMeaslesSchool.md
+            - Measles Mixing: models/measles-mixing.md
+            - Measles Mixing Risk Quarantine: models/measles-mixing-risk-quarantine.md
+        - Specialized Models:
+            - SIR Logit: epiworld/classModelSIRLogit.md
+            - Diffusion Network: epiworld/classModelDiffNet.md
+            - Surveillance: epiworld/classModelSURV.md
+    - Advanced Topics:
+        - advanced/index.md
+        - Library Architecture: impl/1. Library Architecture.md
+        - Performance Optimization: impl/2. Performance Optimization.md
+        - Extending the Library: impl/3. Extending the Library.md
+        - Extending with Models: impl/3.1 Extending the Library with Models.md
+        - Core Simulation Models: impl/4. Core Simulation Models.md
+        - Queueing System: impl/5. Queueing System.md
+        - Random Graph Generation: impl/6. Random Graph Generation.md
+        - Data Collection and Analysis: impl/7. Data Collection and Analysis.md
+        - RNG and Statistical Functions: impl/8. Random Number Generation and Statistical Functions.md
+        - Reproducibility and run_multiple: impl/9. Reproducibility and run_multiple.md
+        - Mixing and Entity Distribution: impl/10. Mixing and Entity Distribution.md
+        - Virus and Tool Distribution: impl/11. Virus and Tool Distribution Functions.md
+        - Generation Interval and R₀: impl/12. Generation Interval and Reproductive Number Calculation.md
+        - Events and Multi-Event Handling: impl/13. Events and Multi-Event Handling.md
+        - Quarantine and Contact Tracing: impl/14. Quarantine, Isolation, and Contact Tracing Modules.md
+        - Sampling Contacts: impl/15. Sampling Contacts.md
+
+  # ── Part 2: Examples ──────────────────────────────────────────────────
+  - Examples:
+    - examples/index.md
+    - Hello World: examples/hello-world.md
+    - SIR Model: examples/sir.md
+    - SEIR Model: examples/seir.md
+    - SIS Model: examples/sis.md
+    - Multiple Runs: examples/multiple-runs.md
+    - Simple SIR: examples/simple-sir.md
+    - Advanced Usage: examples/advanced-usage.md
+    - User Data: examples/user-data.md
+    - Surveillance: examples/surveillance.md
+    - Likelihood-Free MCMC: examples/likelihood-free-mcmc.md
+    - Entities: examples/entities.md
+    - Generation Interval: examples/generation-interval.md
+    - Community–Hospital: examples/community-hospital.md
+
+  # ── Part 3: API Reference ─────────────────────────────────────────────
+  - API Reference:
     - api/index.md
     - Classes: epiworld/annotated.md
     - Files: epiworld/files.md

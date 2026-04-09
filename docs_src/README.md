@@ -50,38 +50,30 @@ int main() {
 
 <div class="grid cards" markdown>
 
--   :material-lightbulb:{ .lg .middle } **Concepts**
+-   :material-book-open-variant:{ .lg .middle } **User Guide**
 
     ---
 
-    Core theory behind epiworld: simulation steps, agents, and contagion
-    mechanics.
+    Learn epiworld step by step: fundamentals, building custom models,
+    adding viruses and tools, and using the built-in models.
 
-    [:octicons-arrow-right-24: Read more](concepts/index.md)
+    [:octicons-arrow-right-24: Start reading](guide/index.md)
 
--   :material-virus:{ .lg .middle } **Models**
-
-    ---
-
-    Pre-built epidemiological models (SIR, SEIR, measles, etc.) ready to use
-    or customize.
-
-    [:octicons-arrow-right-24: Browse models](models/index.md)
-
--   :material-cog:{ .lg .middle } **Implementation**
+-   :material-code-braces:{ .lg .middle } **Examples**
 
     ---
 
-    Architecture, performance optimization, extending the library, and
-    internal design details.
+    Runnable C++ examples from the epiworld repository — from a simple
+    "Hello World" to advanced multi-population models.
 
-    [:octicons-arrow-right-24: Learn more](impl/index.md)
+    [:octicons-arrow-right-24: Browse examples](examples/index.md)
 
 -   :material-code-tags:{ .lg .middle } **API Reference**
 
     ---
 
-    Complete class and function reference generated from the source code.
+    Complete class and function reference generated from the source code
+    via Doxygen.
 
     [:octicons-arrow-right-24: API docs](api/index.md)
 
