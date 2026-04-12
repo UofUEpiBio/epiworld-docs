@@ -6,6 +6,8 @@ hide:
 
 <div class="epiworld-hero" markdown>
 
+<div class="hero-text" markdown>
+
 # Epiworld
 
 <p class="hero-tagline">
@@ -24,6 +26,23 @@ A fast, general-purpose C++ framework for agent-based epidemiological simulation
   <a href="https://github.com/UofUEpiBio/epiworld" class="btn-secondary">GitHub →</a>
 </div>
 
+</div>
+
+<div class="hero-illustration">
+  <img src="assets/img/network-1.svg" alt="Epiworld network graph illustration">
+</div>
+
+</div>
+
+<div class="lang-logos" markdown>
+  <a href="https://github.com/UofUEpiBio/epiworld" class="lang-logo-item">
+    <img src="assets/img/cpp-logo.svg" alt="C++ logo">
+    <span>C++</span>
+  </a>
+  <a href="https://github.com/UofUEpiBio/epiworldR" class="lang-logo-item">
+    <img src="assets/img/r-logo.svg" alt="R logo">
+    <span>R</span>
+  </a>
 </div>
 
 ## Quick Example
@@ -110,6 +129,10 @@ Built-in data collection, reproductive number tracking, generation
 intervals, and likelihood-free inference (LFMCMC).
 </div>
 
+</div>
+
+<div class="network-banner">
+  <img src="assets/img/network-2.svg" alt="Epiworld network visualization">
 </div>
 
 ## Documentation Sections

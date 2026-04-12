@@ -45,7 +45,25 @@
   padding: 3rem 2rem;
   border-radius: 0.75rem;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.epiworld-hero .hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.epiworld-hero .hero-illustration {
+  flex: 0 0 280px;
   text-align: center;
+}
+
+.epiworld-hero .hero-illustration img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3));
 }
 
 .epiworld-hero h1 {
@@ -62,14 +80,11 @@
   opacity: 0.92;
   margin-bottom: 1.75rem;
   max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .epiworld-hero .hero-badges {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
@@ -78,18 +93,19 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 0.4rem 1rem;
   border-radius: 2rem;
   font-size: 0.9rem;
   font-weight: 500;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 .epiworld-hero .hero-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.75rem;
   margin-top: 1.5rem;
 }
@@ -118,6 +134,62 @@
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ── Language logos section ────────────────────────────────────────────────── */
+.lang-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin: 2.5rem 0;
+  padding: 1.5rem 0;
+}
+
+.lang-logos .lang-logo-item {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.85;
+}
+
+.lang-logos .lang-logo-item:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.lang-logos .lang-logo-item img {
+  height: 64px;
+  width: auto;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.lang-logos .lang-logo-item span {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--md-typeset-color);
+}
+
+/* ── Network illustration banner ──────────────────────────────────────────── */
+.network-banner {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+.network-banner img {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.network-banner img:hover {
+  opacity: 1;
 }
 
 /* ── Feature highlights on homepage ───────────────────────────────────────── */
@@ -235,16 +307,58 @@
 
 /* ── Responsive hero ──────────────────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
+  .epiworld-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.25rem;
+  }
+  .epiworld-hero .hero-text {
+    text-align: center;
+  }
+  .epiworld-hero .hero-badges {
+    justify-content: center;
+  }
+  .epiworld-hero .hero-buttons {
+    justify-content: center;
+  }
   .epiworld-hero h1 {
     font-size: 2rem;
   }
   .epiworld-hero .hero-tagline {
     font-size: 1.05rem;
   }
-  .epiworld-hero {
-    padding: 2rem 1.25rem;
+  .epiworld-hero .hero-illustration {
+    flex: 0 0 auto;
+    max-width: 200px;
   }
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+  .lang-logos {
+    gap: 2rem;
+  }
+  .lang-logos .lang-logo-item img {
+    height: 48px;
+  }
+}
+
+/* ── Respect reduced-motion preference ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .epiworld-hero .hero-buttons a,
+  .feature-card,
+  .md-typeset .grid.cards > ol > li,
+  .md-typeset .grid.cards > ul > li,
+  .lang-logos .lang-logo-item,
+  .network-banner img {
+    transition: none;
+  }
+
+  .epiworld-hero .hero-buttons a:hover,
+  .feature-card:hover,
+  .md-typeset .grid.cards > ol > li:hover,
+  .md-typeset .grid.cards > ul > li:hover,
+  .lang-logos .lang-logo-item:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
